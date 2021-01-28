@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  app-server:
+    build:
+      context: .
+      dockerfile: service/dockerfile
+    image: greetingservice
+    ports:
+      - "8000:8000"
+    networks: 
+      - backend
+  wiremock:
+    image: rodolpheche/wiremock
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./functest/src/main/resources/wiremock/mappings:/home/wiremock/mappings
+    networks:
+      - backend  
+      
+networks:
+  backend:

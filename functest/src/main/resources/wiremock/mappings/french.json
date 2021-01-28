@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/greeting/french"
+  },
+  "response": {
+    "status": 200,
+    "body": "Salut"
+  }
+}
